@@ -15,14 +15,21 @@ public class jump : MonoBehaviour
     bool isGrounded;
     float mx;
     float jumpCoolDown;
+    Animator anim;
+    SpriteRenderer sr;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
+        anim.SetBool("run", false);
+        anim.SetBool("jump", false);
+
         mx = Input.GetAxis("Horizontal");
         if (Input.GetKey("space"))
         {
@@ -42,6 +49,7 @@ public class jump : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpCount++;
+            anim.SetBool("jump", true);
         }
         
     }
@@ -56,6 +64,7 @@ public class jump : MonoBehaviour
         else if(Time.time < jumpCoolDown)
         {
             isGrounded = true;
+            anim.SetBool("jump", true);
         }
         else
         {
@@ -74,11 +83,15 @@ public class jump : MonoBehaviour
         {
             speed = 4f;
             transform.position = new Vector2(transform.position.x - (speed * Time.deltaTime), transform.position.y);
+            anim.SetBool(("run"), true);
+            sr.flipX = true;
         }
         if (Input.GetKey("d") == true)
         {
             speed = 4f;
             transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);
+            anim.SetBool(("run"), true);
+            sr.flipX = false;
         }
     }
     
