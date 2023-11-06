@@ -37,12 +37,20 @@ public class jump : MonoBehaviour
         }
         CheckGrounded();
         Run();
+        DoAttack();
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2 (mx * speed, rb.velocity.y);
+        //.velocity = new Vector2 (mx * speed, rb.velocity.y);
     }
 
+    void DoAttack()
+    {
+        if (Input.GetKeyDown("f"))
+        {
+            anim.SetTrigger("attack");
+        }
+    }
     void Jump()
     {
         if(isGrounded || jumpCount < extraJumps)
@@ -75,9 +83,8 @@ public class jump : MonoBehaviour
     void Run()
     {
         if (Input.GetKey("left shift") == true)
-        {
             speed = speed * 2;
-        }
+
 
         if (Input.GetKey("a") == true)
         {
