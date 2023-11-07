@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class jump : MonoBehaviour
 {
-    public float speed = 10f;
-    public float jumpPower = 40f;
+    public float speed = 16f;
+    public float jumpPower = 50f;
     public int extraJumps = 2;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Rigidbody2D rb;
@@ -13,7 +13,6 @@ public class jump : MonoBehaviour
 
     int jumpCount = 0;
     bool isGrounded;
-    float mx;
     float jumpCoolDown;
     Animator anim;
     SpriteRenderer sr;
@@ -30,7 +29,6 @@ public class jump : MonoBehaviour
         anim.SetBool("run", false);
         anim.SetBool("jump", false);
 
-        mx = Input.GetAxis("Horizontal");
         if (Input.GetKey("space"))
         {
             Jump();
@@ -38,6 +36,7 @@ public class jump : MonoBehaviour
         CheckGrounded();
         Run();
         DoAttack();
+
     }
     private void FixedUpdate()
     {
@@ -82,26 +81,25 @@ public class jump : MonoBehaviour
 
     void Run()
     {
-        if (Input.GetKey("left shift") == true)
-            speed = speed * 2;
 
 
         if (Input.GetKey("a") == true)
         {
-            speed = 4f;
             transform.position = new Vector2(transform.position.x - (speed * Time.deltaTime), transform.position.y);
             anim.SetBool(("run"), true);
             sr.flipX = true;
+
         }
         if (Input.GetKey("d") == true)
         {
-            speed = 4f;
             transform.position = new Vector2(transform.position.x + (speed * Time.deltaTime), transform.position.y);
             anim.SetBool(("run"), true);
             sr.flipX = false;
+
         }
     }
-    
+
+
 
 }
 

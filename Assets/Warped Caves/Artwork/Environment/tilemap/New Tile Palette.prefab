@@ -1603,9 +1603,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5385950801050696070}
-  - component: {fileID: 2860909024898897898}
   - component: {fileID: -8092054012902552304}
   - component: {fileID: -1563144275907241582}
+  - component: {fileID: 5490401214203611806}
   m_Layer: 3
   m_Name: New Tile Palette
   m_TagString: Untagged
@@ -1629,18 +1629,6 @@ Transform:
   - {fileID: 6718014383971091383}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!156049354 &2860909024898897898
-Grid:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3478106279125698514}
-  m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
-  m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
 --- !u!1839735485 &-8092054012902552304
 Tilemap:
   m_ObjectHideFlags: 0
@@ -1751,6 +1739,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!156049354 &5490401214203611806
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3478106279125698514}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
 --- !u!114 &6989716479118433177
 MonoBehaviour:
   m_ObjectHideFlags: 0

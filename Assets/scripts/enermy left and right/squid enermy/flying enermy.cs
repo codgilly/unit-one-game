@@ -5,6 +5,8 @@ using UnityEngine;
 public class flyingenermy : MonoBehaviour
 {
     public float speed;
+    public bool chase = false;
+    public Transform startingPoint;
     private GameObject player;
 
     private void Start()
@@ -17,13 +19,23 @@ public class flyingenermy : MonoBehaviour
     {
         if (player == null)
             return;
-        Chase();
+        if (chase == true)
+            Chase();
+        else
+            ReurnStartPoint();
+
         Flip();
+
+
     }
 
     private void Chase()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed*Time.deltaTime);
+    }
+    private void ReurnStartPoint()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, startingPoint.position, speed*Time.deltaTime); 
     }
 
     private void Flip()
